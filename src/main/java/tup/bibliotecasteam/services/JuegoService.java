@@ -9,4 +9,9 @@ import java.util.List;
 public interface JuegoService {
     Juego findByNombre(String nombre);
     List<Juego> getAllByNombreGenero(String genero);
+
+    //1. "Juegos que tengan ..."
+    List<Juego> juegosQueTengan(String palabra);
+
+
 }

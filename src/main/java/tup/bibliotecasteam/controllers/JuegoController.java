@@ -29,4 +29,9 @@ public class JuegoController {
         List<Juego> juegos = juegoService.getAllByNombreGenero(genero);
         return ResponseEntity.ok(juegos);
     }
+
+    @GetMapping("buscar/{palabra}")
+    public ResponseEntity<List<Juego>> buscar(@PathVariable String palabra) {
+        return ResponseEntity.ok(juegoService.juegosQueTengan(palabra));
+    }
 }

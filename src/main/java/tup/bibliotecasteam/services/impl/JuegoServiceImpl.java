@@ -48,4 +48,18 @@ public class JuegoServiceImpl implements JuegoService {
         }
         return listJuegos;
     }
+
+    // Punto 1
+    @Override
+    public List<Juego> juegosQueTengan(String palabra) {
+        List<Juego> listaJuego = new ArrayList<>();
+        Optional<List<JuegoEntity>> entityList = juegoJpaRepository.getAllJuegosLike(palabra);
+        entityList.ifPresent(list -> list.forEach(
+                entity -> listaJuego.add(modelMapper.map(entity, Juego.class))
+        ));
+        if (listaJuego.isEmpty()){
+            throw new EntityNotFoundException("No se encontraron coincidencias!");
+        }
+        return listaJuego;
+    }
 }
