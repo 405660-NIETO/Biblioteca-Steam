@@ -1,4 +1,5 @@
-# v1.0.0 (Bibliotecas y Usuarios)
+> [!IMPORTANT]  
+> v1.0.0 (Bibliotecas y Usuarios)
 
 > Endpoints Basicos
 
@@ -16,10 +17,10 @@ Biblioteca
 ----------
 - /biblioteca/{horas} `GET`
 
-```prolog
-- TODO LIST
+> [!NOTE]  
+> TODO List.
 
-1. juegos que empiezen por <PALABRA> %% COMPLETADO.
+1. juegos que empiezen por <PALABRA> _Completado_
 
 2. listar juegos por cantidad de reviews
 
@@ -40,4 +41,3 @@ Biblioteca
 10. listar todos los usuarios por ultima vez conectado
 
 11. listar todos los usuarios empezando por el mas antiguo
-```
