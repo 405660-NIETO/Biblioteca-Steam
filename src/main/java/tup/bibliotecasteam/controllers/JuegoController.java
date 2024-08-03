@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tup.bibliotecasteam.models.Juego;
 import tup.bibliotecasteam.services.JuegoService;
+import tup.bibliotecasteam.dtos.JuegoDTO;
 
 import java.util.List;
 
@@ -17,6 +18,11 @@ public class JuegoController {
 
     @Autowired
     private JuegoService juegoService;
+
+    @GetMapping("porReviews/ascendente")
+    public ResponseEntity<List<JuegoDTO>> getJuegosPerReviewAsc() {
+        return ResponseEntity.ok(juegoService.juegosPorReviewAscendente());
+    }
 
     @GetMapping("/{nombre}/")
     public ResponseEntity<Juego> getJuegosByNombre(@PathVariable String nombre) {

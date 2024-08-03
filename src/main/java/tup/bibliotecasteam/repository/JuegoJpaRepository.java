@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import tup.bibliotecasteam.entities.JuegoEntity;
+import org.springframework.data.jpa.repository.Query;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -19,5 +21,7 @@ public interface JuegoJpaRepository extends JpaRepository<JuegoEntity, Long> {
     //@Query("SELECT j FROM JuegoEntity j JOIN j.genero g WHERE j.nombre LIKE CONCAT('%', :palabra, '%')")
     @Query("SELECT j FROM JuegoEntity j JOIN j.genero g WHERE LOWER(j.nombre) LIKE LOWER(CONCAT('%', :palabra, '%'))")
     Optional<List<JuegoEntity>> getAllJuegosLike(@Param("palabra") String palabra);
+
+
 
 }
