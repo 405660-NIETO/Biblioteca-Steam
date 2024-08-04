@@ -1,6 +1,7 @@
 package tup.bibliotecasteam.services;
 
 import org.springframework.stereotype.Service;
+import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.models.Juego;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public interface JuegoService {
     //1. "Juegos que tengan ..."
     List<Juego> juegosQueTengan(String palabra);
 
-
+    //2. "Listar juegos con su cantidad total de reviews"
+    List<ReviewJuegoDto> juegosCountReviews();
 }

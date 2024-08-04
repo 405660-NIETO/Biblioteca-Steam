@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.models.Juego;
 import tup.bibliotecasteam.services.JuegoService;
 
@@ -33,5 +34,10 @@ public class JuegoController {
     @GetMapping("buscar/{palabra}")
     public ResponseEntity<List<Juego>> buscar(@PathVariable String palabra) {
         return ResponseEntity.ok(juegoService.juegosQueTengan(palabra));
+    }
+
+    @GetMapping("/reviews/count")
+    public ResponseEntity<List<ReviewJuegoDto>> getCountReviews() {
+        return ResponseEntity.ok(juegoService.juegosCountReviews());
     }
 }

@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.entities.JuegoEntity;
 
 import java.util.List;
@@ -20,4 +21,10 @@ public interface JuegoJpaRepository extends JpaRepository<JuegoEntity, Long> {
     @Query("SELECT j FROM JuegoEntity j JOIN j.genero g WHERE LOWER(j.nombre) LIKE LOWER(CONCAT('%', :palabra, '%'))")
     Optional<List<JuegoEntity>> getAllJuegosLike(@Param("palabra") String palabra);
 
+    @Query("SELECT new " +
+            "tup.bibliotecasteam.dtos.ReviewJuegoDto(j.id, j.nombre, COUNT(b.review)) " +
+            "FROM JuegoEntity j " +
+            "LEFT JOIN BibliotecaEntity b ON j.id = b.juego.id " +
+            "GROUP BY j.id, j.nombre")
+    List<ReviewJuegoDto> findJuegosWithReviewCount();
 }
