@@ -8,13 +8,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tup.bibliotecasteam.dtos.Credentials;
+import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
 import tup.bibliotecasteam.models.Usuario;
 import tup.bibliotecasteam.services.UsuarioService;
+
+import java.util.List;
 
 
 @RestController
@@ -40,5 +40,11 @@ public class UsuarioController {
         Usuario usuario = usuarioService.findByEmailAndPassword(credentials.getEmail(), credentials.getPassword());
 
         return ResponseEntity.ok(usuario);
+    }
+
+    @GetMapping("/juegos")
+    public ResponseEntity<List<UsuarioBibliotecaDto>> obtenerUsuariosConCantidadJuegos() {
+        List<UsuarioBibliotecaDto> usuarios = usuarioService.usuariosConCantidadJuegos();
+        return ResponseEntity.ok(usuarios);
     }
 }

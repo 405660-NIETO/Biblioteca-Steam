@@ -4,12 +4,14 @@ import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
 import tup.bibliotecasteam.entities.UsuarioEntity;
 import tup.bibliotecasteam.models.Usuario;
 import tup.bibliotecasteam.repository.UsuarioJpaRepository;
 import tup.bibliotecasteam.services.UsuarioService;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,5 +34,14 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioJpaRepository.save(usuarioEntity.get());
         //usuarioJpaRepository.updateLastLogin(email);
         return modelMapper.map(usuarioEntity.get(), Usuario.class);
+    }
+
+    @Override
+    public List<UsuarioBibliotecaDto> usuariosConCantidadJuegos() {
+        List<UsuarioBibliotecaDto> listaUsuarios = usuarioJpaRepository.findUsuariosXCantidadJuegos();
+        if (listaUsuarios.isEmpty()) {
+            throw new EntityNotFoundException("No se encontraron usuarios con juegos comprados.");
+        }
+        return listaUsuarios;
     }
 }
