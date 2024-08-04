@@ -20,11 +20,11 @@ Biblioteca
 > [!NOTE]  
 > TODO List.
 
-1. juegos que empiezen por <PALABRA> _Completado_
+1. juegos que empiezen por <PALABRA> `Completado`
 
-2. listar juegos por cantidad de reviews
+2. listar juegos por cantidad de reviews `Completado`
 
-3. listar juegos con mayor cantidad de horas totales
+3. listar juegos con mayor cantidad de horas totales `Completado`
 
 4. listar juegos mas comprados
 
