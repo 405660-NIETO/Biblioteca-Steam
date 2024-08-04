@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import tup.bibliotecasteam.dtos.JuegoHorasDto;
+import tup.bibliotecasteam.dtos.JuegosDescargadosDto;
 import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.entities.JuegoEntity;
 
@@ -37,4 +38,13 @@ public interface JuegoJpaRepository extends JpaRepository<JuegoEntity, Long> {
             "GROUP BY j.nombre " +
             "ORDER BY SUM(b.horas) DESC")
     List<JuegoHorasDto> getJuegosConHorasTotales();
+
+    //Punto 4
+    @Query("SELECT new tup.bibliotecasteam.dtos.JuegosDescargadosDto(j.nombre, COUNT(b.usuario.id)) " +
+            "FROM JuegoEntity j " +
+            "LEFT JOIN BibliotecaEntity b ON j.id = b.juego.id " +
+            "GROUP BY j.nombre " +
+            "ORDER BY COUNT(b.usuario.id) DESC")
+    List<JuegosDescargadosDto> findJuegosConTotalDescargas();
 }
+

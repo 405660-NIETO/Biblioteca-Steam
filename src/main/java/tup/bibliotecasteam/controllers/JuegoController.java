@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tup.bibliotecasteam.dtos.JuegoHorasDto;
+import tup.bibliotecasteam.dtos.JuegosDescargadosDto;
 import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.models.Juego;
 import tup.bibliotecasteam.services.JuegoService;
@@ -37,13 +38,18 @@ public class JuegoController {
         return ResponseEntity.ok(juegoService.juegosQueTengan(palabra));
     }
 
-    @GetMapping("/reviews/count")
+    @GetMapping("/visualizar-por/reviews")
     public ResponseEntity<List<ReviewJuegoDto>> getCountReviews() {
         return ResponseEntity.ok(juegoService.juegosCountReviews());
     }
 
-    @GetMapping("/horas/totales")
+    @GetMapping("/visualizar-por/horas")
     public ResponseEntity<List<JuegoHorasDto>> obtenerJuegosConHorasTotales() {
         return ResponseEntity.ok(juegoService.juegosConHorasTotales());
+    }
+
+    @GetMapping("/visualizar-por/descargas")
+    public ResponseEntity<List<JuegosDescargadosDto>> getTotalDescargas() {
+        return ResponseEntity.ok(juegoService.listarTotalDescargas());
     }
 }

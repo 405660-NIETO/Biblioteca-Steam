@@ -26,7 +26,7 @@ Biblioteca
 
 3. listar juegos con mayor cantidad de horas totales `Completado`
 
-4. listar juegos mas comprados
+4. listar juegos mas comprados `Completado`
 
 5. listar usuarios con la mayor cantidad de juegos comprados
 
