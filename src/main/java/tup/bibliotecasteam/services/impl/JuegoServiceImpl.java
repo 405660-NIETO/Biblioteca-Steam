@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tup.bibliotecasteam.dtos.JuegoHorasDto;
 import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.entities.JuegoEntity;
 import tup.bibliotecasteam.models.Juego;
@@ -73,4 +74,12 @@ public class JuegoServiceImpl implements JuegoService {
         return listaJuegos;
     }
 
+    @Override
+    public List<JuegoHorasDto> juegosConHorasTotales() {
+        List<JuegoHorasDto> listaJuegos = juegoJpaRepository.getJuegosConHorasTotales();
+        if (listaJuegos.isEmpty()) {
+            throw new EntityNotFoundException("No se encontraron juegos con horas registradas.");
+        }
+        return listaJuegos;
+    }
 }
