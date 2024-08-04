@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tup.bibliotecasteam.dtos.Credentials;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.models.Usuario;
 import tup.bibliotecasteam.services.UsuarioService;
 
@@ -45,6 +46,12 @@ public class UsuarioController {
     @GetMapping("/juegos")
     public ResponseEntity<List<UsuarioBibliotecaDto>> obtenerUsuariosConCantidadJuegos() {
         List<UsuarioBibliotecaDto> usuarios = usuarioService.usuariosConCantidadJuegos();
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/horasTotales")
+    public ResponseEntity<List<UsuariosHorasTotalesDto>> getUsuariosXTotalHoras() {
+        List<UsuariosHorasTotalesDto> usuarios = usuarioService.usuariosPorTotalHoras();
         return ResponseEntity.ok(usuarios);
     }
 }

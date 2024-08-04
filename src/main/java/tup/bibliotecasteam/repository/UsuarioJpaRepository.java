@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.entities.UsuarioEntity;
 
 import java.util.List;
@@ -20,4 +21,12 @@ public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long>
             "GROUP BY u.id, u.nombre, u.pais, u.nivel " +
             "ORDER BY COUNT(b.juego.id) DESC, u.nivel DESC, u.nombre ASC, u.pais ASC")
     List<UsuarioBibliotecaDto> findUsuariosXCantidadJuegos();
+
+    //6. "Listar usuarios por mayor cantidad de horas registradas en juegos"
+    @Query("SELECT new tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto(u.id, u.nombre, u.pais, u.nivel, SUM(b.horas)) " +
+            "FROM UsuarioEntity u " +
+            "LEFT JOIN BibliotecaEntity b ON b.usuario.id = u.id " +
+            "GROUP BY u.id, u.nombre, u.pais, u.nivel " +
+            "ORDER BY SUM(b.horas) DESC, u.nivel DESC, u.nombre ASC, u.pais ASC")
+    List<UsuariosHorasTotalesDto> findUsuariosXHorasTotales();
 }

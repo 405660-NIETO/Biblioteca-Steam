@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.entities.UsuarioEntity;
 import tup.bibliotecasteam.models.Usuario;
 import tup.bibliotecasteam.repository.UsuarioJpaRepository;
@@ -41,6 +42,15 @@ public class UsuarioServiceImpl implements UsuarioService {
         List<UsuarioBibliotecaDto> listaUsuarios = usuarioJpaRepository.findUsuariosXCantidadJuegos();
         if (listaUsuarios.isEmpty()) {
             throw new EntityNotFoundException("No se encontraron usuarios con juegos comprados.");
+        }
+        return listaUsuarios;
+    }
+
+    @Override
+    public List<UsuariosHorasTotalesDto> usuariosPorTotalHoras() {
+        List<UsuariosHorasTotalesDto> listaUsuarios = usuarioJpaRepository.findUsuariosXHorasTotales();
+        if (listaUsuarios.isEmpty()) {
+            throw new EntityNotFoundException("No hay usuarios con horas registradas.");
         }
         return listaUsuarios;
     }

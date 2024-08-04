@@ -2,6 +2,7 @@ package tup.bibliotecasteam.services;
 
 import org.springframework.stereotype.Service;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.models.Usuario;
 
 import java.util.List;
@@ -13,4 +14,7 @@ public interface UsuarioService {
 
     //Punto 5
     List<UsuarioBibliotecaDto> usuariosConCantidadJuegos();
+
+    //Punto 6
+    List<UsuariosHorasTotalesDto> usuariosPorTotalHoras();
 }
