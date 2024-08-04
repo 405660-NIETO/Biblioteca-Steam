@@ -17,6 +17,8 @@ Biblioteca
 ----------
 - /biblioteca/{horas} `GET`
 
+----------
+
 > [!NOTE]  
 > TODO List.
 
