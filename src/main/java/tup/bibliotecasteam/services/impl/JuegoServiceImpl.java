@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.entities.JuegoEntity;
 import tup.bibliotecasteam.models.Juego;
 import tup.bibliotecasteam.repository.JuegoJpaRepository;
@@ -62,4 +63,14 @@ public class JuegoServiceImpl implements JuegoService {
         }
         return listaJuego;
     }
+
+    @Override
+    public List<ReviewJuegoDto> juegosCountReviews() {
+        List<ReviewJuegoDto> listaJuegos = juegoJpaRepository.findJuegosWithReviewCount();
+        if (listaJuegos.isEmpty()) {
+            throw new EntityNotFoundException("No se encontraron juegos con reviews por el momento!");
+        }
+        return listaJuegos;
+    }
+
 }

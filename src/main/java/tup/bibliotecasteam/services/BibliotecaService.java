@@ -1,6 +1,7 @@
 package tup.bibliotecasteam.services;
 
 import org.springframework.stereotype.Service;
+import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.models.Biblioteca;
 import tup.bibliotecasteam.models.Juego;
 import tup.bibliotecasteam.models.Usuario;

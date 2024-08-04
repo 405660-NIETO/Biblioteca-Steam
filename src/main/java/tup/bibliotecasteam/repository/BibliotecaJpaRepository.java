@@ -1,6 +1,7 @@
 package tup.bibliotecasteam.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import tup.bibliotecasteam.entities.BibliotecaEntity;
 import tup.bibliotecasteam.entities.JuegoEntity;
