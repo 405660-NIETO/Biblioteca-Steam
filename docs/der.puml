@@ -1,27 +1,49 @@
 @startuml
-'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+entity "Generos" {
+  + Long id
+  --
+  nombre: String
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+entity "Juegos" {
+  + Long id
+  --
+  nombre: String
+  release_date: LocalDateTime
+  precio: Integer
+  id_genero: Long
+  logros: Integer
+  developer: String
+  publisher: String
+  rating: String
 }
+
+entity "Usuarios" {
+  + Long id
+  --
+  email: String
+  password: String
+  nombre: String
+  pais: String
+  last_login: LocalDateTime
+  created_at: LocalDateTime
+  nivel: Integer
+}
+
+entity "Bibliotecas" {
+  + Long id
+  --
+  id_juego: Long
+  id_usuario: Long
+  horas: Integer
+  logros: Integer
+  review: String
+}
+
+' Relaciones
+Generos ||--o{ Juegos : "id_genero"
+Juegos ||--o{ Bibliotecas : "id_juego"
+Usuarios ||--o{ Bibliotecas : "id_usuario"
 
 @enduml
