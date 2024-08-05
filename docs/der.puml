@@ -46,7 +46,7 @@ entity "Perfiles" {
   --
   usuario_id: Long
   descripcion: String
-  foto_perfil: String
+  avatar: String
   fondo: String
 }
 

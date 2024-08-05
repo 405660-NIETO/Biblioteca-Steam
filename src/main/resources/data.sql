@@ -120,3 +120,15 @@ INSERT INTO BIBLIOTECAS (id, id_juego, id_usuario, horas, logros, review) VALUES
 (327, 117, 100, 145, 64, 'Siempre divertido jugar con amigos.'),
 (328, 118, 101, 340, 84, 'Increíble cantidad de contenido.'),
 (329, 119, 102, 240, 74, 'Historia profunda y emocionante.');
+
+INSERT INTO Perfiles (id, usuario_id, descripcion, avatar, fondo) VALUES (100, 100, 'Me compre una cajita feli', 'imgur.com/logoDeBoca.png', 'imgur.com/enanoDeBocaAsado.jpg'),
+                                                                         (101, 101, 'diablo', 'imgur.com/arthurMorgan.png', 'imgur.com/rdr2-fondo3.jpg'),
+                                                                         (102, 102, 'Amante de la programación y los gatos', 'imgur.com/programmingCat.png', 'imgur.com/codeBackground.jpg'),
+                                                                         (103, 103, 'Fanática de los juegos de rol', 'imgur.com/rpgAvatar.png', 'imgur.com/rpgBackground.jpg'),
+                                                                         (104, 104, 'Entusiasta de los deportes extremos', 'imgur.com/extremeSports.png', 'imgur.com/extremeSportsBackground.jpg'),
+                                                                         (105, 105, 'Apasionada por la fotografía y el arte', 'imgur.com/photographyAvatar.png', 'imgur.com/photographyBackground.jpg'),
+                                                                         (106, 106, 'Aventurero y viajero', 'imgur.com/travelAvatar.png', 'imgur.com/travelBackground.jpg'),
+                                                                         (107, 107, 'Cocinera experta y amante de la buena comida', 'imgur.com/cookingAvatar.png', 'imgur.com/cookingBackground.jpg'),
+                                                                         (108, 108, 'Músico y compositor', 'imgur.com/musicAvatar.png', 'imgur.com/musicBackground.jpg'),
+                                                                         (109, 109, 'Gamer y streamer', 'imgur.com/gamerAvatar.png', 'imgur.com/gamerBackground.jpg');
+
