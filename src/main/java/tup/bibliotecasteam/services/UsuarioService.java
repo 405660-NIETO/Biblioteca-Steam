@@ -2,6 +2,7 @@ package tup.bibliotecasteam.services;
 
 import org.springframework.stereotype.Service;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuarioXLogros;
 import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.models.Usuario;
 
@@ -20,4 +21,7 @@ public interface UsuarioService {
 
     //Punto 7
     List<Usuario> findUsuariosPorJuego(String juego);
+
+    //Punto 8
+    List<UsuarioXLogros> findUsuariosXLogros();
 }

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuarioXLogros;
 import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.entities.UsuarioEntity;
 
@@ -38,4 +39,12 @@ public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long>
             "WHERE j.nombre = :juego " +
             "ORDER BY u.nivel DESC, u.nombre ASC, u.pais ASC")
     Optional<List<UsuarioEntity>> findUsuariosPorJuego(@Param("juego") String juego);
+
+    //8. "Listar usuarios con la mayor cantidad total de logros obtenidos"
+    @Query("SELECT new tup.bibliotecasteam.dtos.UsuarioXLogros(u.id, u.nombre, u.pais, u.nivel, SUM(b.logros)) " +
+            "FROM UsuarioEntity u " +
+            "LEFT JOIN BibliotecaEntity b ON b.usuario.id = u.id " +
+            "GROUP BY u.id, u.nombre, u.pais, u.nivel " +
+            "ORDER BY SUM(b.logros) DESC, u.nivel DESC, u.nombre ASC, u.pais ASC")
+    List<UsuarioXLogros> findUsuariosXLogros();
 }

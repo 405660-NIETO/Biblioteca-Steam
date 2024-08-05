@@ -36,7 +36,7 @@ Biblioteca
 
 7. listar usuarios que hayan jugado comprado <NOMBRE DEL JUEGO>. `Completado`
 
-8. listar usuarios con la mayor cantidad total de logros obtenidos.
+8. listar usuarios con la mayor cantidad total de logros obtenidos. `Completado`
 
 9. listar usuarios por nivel mayor a menor.
 

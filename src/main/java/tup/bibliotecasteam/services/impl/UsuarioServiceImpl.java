@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuarioXLogros;
 import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.entities.UsuarioEntity;
 import tup.bibliotecasteam.models.Usuario;
@@ -67,5 +68,14 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new EntityNotFoundException("Ese juego no se encuentra en la biblioteca de ningún usuario!");
         }
         return usuarios;
+    }
+
+    @Override
+    public List<UsuarioXLogros> findUsuariosXLogros() {
+        List<UsuarioXLogros> listaUsuarios = usuarioJpaRepository.findUsuariosXLogros();
+        if (listaUsuarios.isEmpty()) {
+            throw new EntityNotFoundException("Aun no hay usuarios con logros!");
+        }
+        return listaUsuarios;
     }
 }

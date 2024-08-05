@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tup.bibliotecasteam.dtos.Credentials;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuarioXLogros;
 import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.models.Usuario;
 import tup.bibliotecasteam.services.UsuarioService;
@@ -58,6 +59,12 @@ public class UsuarioController {
     @GetMapping("/compraron/{juego}")
     public ResponseEntity<List<Usuario>> getUsuariosXJuego(@PathVariable String juego) {
         List<Usuario> usuarios = usuarioService.findUsuariosPorJuego(juego);
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/logros")
+    public ResponseEntity<List<UsuarioXLogros>> getUsuariosXLogros() {
+        List<UsuarioXLogros> usuarios = usuarioService.findUsuariosXLogros();
         return ResponseEntity.ok(usuarios);
     }
 }
