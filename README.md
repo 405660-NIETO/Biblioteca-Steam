@@ -38,7 +38,7 @@ Biblioteca
 
 8. listar usuarios con la mayor cantidad total de logros obtenidos. `Completado`
 
-9. listar usuarios por nivel mayor a menor.
+9. listar usuarios por nivel mayor a menor. `Completado`
 
 10. listar todos los usuarios por ultima vez conectado.
 

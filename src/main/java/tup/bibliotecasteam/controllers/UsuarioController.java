@@ -67,4 +67,10 @@ public class UsuarioController {
         List<UsuarioXLogros> usuarios = usuarioService.findUsuariosXLogros();
         return ResponseEntity.ok(usuarios);
     }
+
+    @GetMapping("/top-level")
+    public ResponseEntity<List<Usuario>> getHighLevelUsuarios() {
+        List<Usuario> usuarios = usuarioService.findHighLevelUsuarios();
+        return ResponseEntity.ok(usuarios);
+    }
 }

@@ -78,4 +78,17 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
         return listaUsuarios;
     }
+
+    @Override
+    public List<Usuario> findHighLevelUsuarios() {
+        List<Usuario> usuarios = new ArrayList<>();
+        Optional<List<UsuarioEntity>> optionalList = usuarioJpaRepository.findHighLevelUsuarios();
+        optionalList.ifPresent(entidades -> entidades.forEach(
+                entidad -> usuarios.add(modelMapper.map(entidad, Usuario.class))
+        ));
+        if (usuarios.isEmpty()) {
+            throw new EntityNotFoundException("No se encontraron usuarios!");
+        }
+        return usuarios;
+    }
 }

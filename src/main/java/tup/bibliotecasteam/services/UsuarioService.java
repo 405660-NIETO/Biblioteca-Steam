@@ -24,4 +24,7 @@ public interface UsuarioService {
 
     //Punto 8
     List<UsuarioXLogros> findUsuariosXLogros();
+
+    //Punto 9
+    List<Usuario> findHighLevelUsuarios();
 }

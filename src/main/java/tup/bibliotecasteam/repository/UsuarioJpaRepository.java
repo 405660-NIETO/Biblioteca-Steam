@@ -47,4 +47,8 @@ public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long>
             "GROUP BY u.id, u.nombre, u.pais, u.nivel " +
             "ORDER BY SUM(b.logros) DESC, u.nivel DESC, u.nombre ASC, u.pais ASC")
     List<UsuarioXLogros> findUsuariosXLogros();
+
+    //9 "Listar usuarios por nivel mayor a menor"
+    @Query("SELECT u FROM UsuarioEntity u ORDER BY u.nivel DESC, u.nombre ASC, u.pais ASC, u.lastLogin DESC")
+    Optional<List<UsuarioEntity>> findHighLevelUsuarios();
 }
