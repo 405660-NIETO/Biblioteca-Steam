@@ -3,6 +3,8 @@
 
 ## Desarrollo de 3.0.0:
 
+![der.png](./docs/imgs/der.png)
+
 # Tablas nuevas
 
 ## Perfiles
