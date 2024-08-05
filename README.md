@@ -3,56 +3,9 @@
 
 ## Desarrollo de 3.0.0:
 
-# Tablas nuevas
+Tablas Nuevas: _Perfiles, Comentarios, Amigos, SolicitudesAmistad, ListaDeseados_
 
-## Perfiles
-
-| Columna          | Tipo   | 
-|------------------|--------|
-| `id`             | Long   | 
-| `usuario_id`     | Long   | 
-| `descripcion`    | String | 
-| `foto_perfil`    | String | 
-| `fondo`          | String | 
-
-## Comentarios
-
-| Columna          | Tipo          |
-|------------------|---------------|
-| `id`             | Long          |
-| `perfil_id`      | Long          |
-| `usuario_id`     | Long          |
-| `comentario`     | String        |
-| `fecha`          | LocalDateTime |
-
-## Amigos
-
-| Columna          | Tipo          |
-|------------------|---------------|
-| `id`             | Long          |
-| `usuario_id`     | Long          |
-| `amigo_id`       | Long          |
-| `fecha_amistad`  | LocalDateTime |
-
-## SolicitudesAmistad
-
-| Columna          | Tipo          |
-|------------------|---------------|
-| `id`             | Long          |
-| `usuario_id`     | Long          |
-| `amigo_id`       | Long          |
-| `estado`         | String        |
-| `fecha_solicitud`| LocalDateTime |
-
-## ListaDeseados
-
-| Columna          | Tipo          |
-|------------------|---------------|
-| `id`             | Long          |
-| `usuario_id`     | Long          |
-| `juego_id`       | Long          |
-| `fecha_agregado` | LocalDateTime |
-
+![der.png](./docs/imgs/der.png)
 
 ### //TODOs 3.0.0
 
@@ -69,8 +22,6 @@
 10. Agregar juego a lista de deseados
 11. Quitar juego de la lista de deseados
 
-
----
 
 # Release History
 
