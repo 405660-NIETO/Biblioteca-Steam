@@ -24,6 +24,7 @@ public interface JuegoJpaRepository extends JpaRepository<JuegoEntity, Long> {
     Optional<List<JuegoEntity>> getAllJuegosLike(@Param("palabra") String palabra);
 
     //Punto 2
+
     @Query("SELECT new " +
             "tup.bibliotecasteam.dtos.ReviewJuegoDto(j.id, j.nombre, COUNT(b.review)) " +
             "FROM JuegoEntity j " +
@@ -46,5 +47,6 @@ public interface JuegoJpaRepository extends JpaRepository<JuegoEntity, Long> {
             "GROUP BY j.nombre " +
             "ORDER BY COUNT(b.usuario.id) DESC")
     List<JuegosDescargadosDto> findJuegosConTotalDescargas();
+
 }
 

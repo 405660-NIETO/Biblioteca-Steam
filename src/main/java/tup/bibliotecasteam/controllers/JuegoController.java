@@ -37,7 +37,7 @@ public class JuegoController {
     public ResponseEntity<List<Juego>> buscar(@PathVariable String palabra) {
         return ResponseEntity.ok(juegoService.juegosQueTengan(palabra));
     }
-
+  
     @GetMapping("/visualizar-por/reviews")
     public ResponseEntity<List<ReviewJuegoDto>> getCountReviews() {
         return ResponseEntity.ok(juegoService.juegosCountReviews());
@@ -52,4 +52,5 @@ public class JuegoController {
     public ResponseEntity<List<JuegosDescargadosDto>> getTotalDescargas() {
         return ResponseEntity.ok(juegoService.listarTotalDescargas());
     }
+
 }

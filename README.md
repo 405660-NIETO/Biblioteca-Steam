@@ -20,7 +20,7 @@ Biblioteca
 ----------
 
 > [!NOTE]  
-> TODO List.
+> TODO List (Pre 2.0.0)
 
 1. juegos que empiezen por <PALABRA>. `Completado`
 
