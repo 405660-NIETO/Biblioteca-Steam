@@ -41,9 +41,65 @@ entity "Bibliotecas" {
   review: String
 }
 
+entity "Perfiles" {
+  + Long id
+  --
+  usuario_id: Long
+  descripcion: String
+  foto_perfil: String
+  fondo: String
+}
+
+entity "Comentarios" {
+  + Long id
+  --
+  perfil_id: Long
+  usuario_id: Long
+  comentario: String
+  fecha: LocalDateTime
+}
+
+entity "Amigos" {
+  + Long id
+  --
+  usuario_id: Long
+  amigo_id: Long
+  fecha_amistad: LocalDateTime
+}
+
+entity "SolicitudesAmistad" {
+  + Long id
+  --
+  usuario_id: Long
+  amigo_id: Long
+  estado: String
+  fecha_solicitud: LocalDateTime
+}
+
+entity "ListaDeseados" {
+  + Long id
+  --
+  usuario_id: Long
+  juego_id: Long
+  fecha_agregado: LocalDateTime
+}
+
 ' Relaciones
 Generos ||--o{ Juegos : "id_genero"
 Juegos ||--o{ Bibliotecas : "id_juego"
 Usuarios ||--o{ Bibliotecas : "id_usuario"
+
+Usuarios ||--|| Perfiles : "usuario_id"
+Perfiles ||--o{ Comentarios : "perfil_id"
+Usuarios ||--o{ Comentarios : "usuario_id"
+
+Usuarios ||--o{ Amigos : "usuario_id"
+Usuarios ||--o{ Amigos : "amigo_id"
+
+Usuarios ||--o{ SolicitudesAmistad : "usuario_id"
+Usuarios ||--o{ SolicitudesAmistad : "amigo_id"
+
+Usuarios ||--o{ ListaDeseados : "usuario_id"
+Juegos ||--o{ ListaDeseados : "juego_id"
 
 @enduml
