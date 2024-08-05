@@ -1,6 +1,77 @@
 > [!IMPORTANT]  
 > 3.0.0 desarrollandose activamente en `develop/agus`
 
+## Desarrollo de 3.0.0:
+
+# Tablas nuevas
+
+## Perfiles
+
+| Columna          | Tipo   | 
+|------------------|--------|
+| `id`             | Long   | 
+| `usuario_id`     | Long   | 
+| `descripcion`    | String | 
+| `foto_perfil`    | String | 
+| `fondo`          | String | 
+
+## Comentarios
+
+| Columna          | Tipo          |
+|------------------|---------------|
+| `id`             | Long          |
+| `perfil_id`      | Long          |
+| `usuario_id`     | Long          |
+| `comentario`     | String        |
+| `fecha`          | LocalDateTime |
+
+## Amigos
+
+| Columna          | Tipo          |
+|------------------|---------------|
+| `id`             | Long          |
+| `usuario_id`     | Long          |
+| `amigo_id`       | Long          |
+| `fecha_amistad`  | LocalDateTime |
+
+## SolicitudesAmistad
+
+| Columna          | Tipo          |
+|------------------|---------------|
+| `id`             | Long          |
+| `usuario_id`     | Long          |
+| `amigo_id`       | Long          |
+| `estado`         | String        |
+| `fecha_solicitud`| LocalDateTime |
+
+## ListaDeseados
+
+| Columna          | Tipo          |
+|------------------|---------------|
+| `id`             | Long          |
+| `usuario_id`     | Long          |
+| `juego_id`       | Long          |
+| `fecha_agregado` | LocalDateTime |
+
+
+### //TODOs 3.0.0
+
+1. Agregar Billetera
+2. Comprar Juegos
+3. Mejorar Reseñas (Positivas/Negativas)
+4. Listado de juegos con su porcentaje de reseñas positivas
+> // TODOs despues de agregar las tablas nuevas `[Perfil]` `[Comentarios]` `[Amigos]` `[SolicitudesAmistad]` `[ListaDeseos]`
+5. Listar amigos de un usuario
+6. Listar amigos que compraron `X` juego
+7. Enviar Solicitud de Amistad
+8. Ver Solicitudes
+9. Aceptar/Rechazar Solicitud
+10. Agregar juego a lista de deseados
+11. Quitar juego de la lista de deseados
+
+
+---
+
 # Release History
 
 **v1.0.0**

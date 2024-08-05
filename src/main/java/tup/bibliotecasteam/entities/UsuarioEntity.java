@@ -42,4 +42,8 @@ public class UsuarioEntity {
 
     @Column(name = "nivel")
     private Integer nivel;
+
+    //por la relacion 1 a 1 de perfil
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private PerfilEntity perfil;
 }
