@@ -73,4 +73,16 @@ public class UsuarioController {
         List<Usuario> usuarios = usuarioService.findHighLevelUsuarios();
         return ResponseEntity.ok(usuarios);
     }
+
+    @GetMapping("/recientes")
+    public ResponseEntity<List<Usuario>> getUsuariosRecientes() {
+        List<Usuario> usuarios = usuarioService.findUsuariosRecientes();
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/antiguedad")
+    public ResponseEntity<List<Usuario>> getUsuariosAntiguos() {
+        List<Usuario> usuarios = usuarioService.findUsuarioAntiguo();
+        return ResponseEntity.ok(usuarios);
+    }
 }

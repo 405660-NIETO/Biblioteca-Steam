@@ -49,6 +49,14 @@ public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long>
     List<UsuarioXLogros> findUsuariosXLogros();
 
     //9 "Listar usuarios por nivel mayor a menor"
-    @Query("SELECT u FROM UsuarioEntity u ORDER BY u.nivel DESC, u.nombre ASC, u.pais ASC, u.lastLogin DESC")
+    @Query("SELECT u FROM UsuarioEntity u ORDER BY u.nivel DESC, u.nombre ASC, u.pais ASC, u.createdAt DESC, u.lastLogin DESC")
     Optional<List<UsuarioEntity>> findHighLevelUsuarios();
+
+    //10. "Listar todos los usuarios por ultima vez conectado."
+    @Query("SELECT u FROM UsuarioEntity u ORDER BY u.lastLogin DESC, u.nombre ASC, u.nivel DESC, u.pais ASC, u.createdAt DESC")
+    Optional<List<UsuarioEntity>> findUsuariosRecientes();
+
+    //11. "Listar todos los usuarios empezando por el mas antiguo."
+    @Query("SELECT u FROM UsuarioEntity u ORDER BY u.createdAt ASC, u.nombre ASC, u.nivel DESC, u.pais ASC, u.lastLogin DESC")
+    Optional<List<UsuarioEntity>> findUsuarioAntiguo();
 }

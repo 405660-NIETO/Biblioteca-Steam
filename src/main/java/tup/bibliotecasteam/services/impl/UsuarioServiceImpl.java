@@ -91,4 +91,30 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
         return usuarios;
     }
+
+    @Override
+    public List<Usuario> findUsuariosRecientes() {
+        List<Usuario> usuarios = new ArrayList<>();
+        Optional<List<UsuarioEntity>> optionalList = usuarioJpaRepository.findUsuariosRecientes();
+        optionalList.ifPresent(entidades -> entidades.forEach(
+                entidad -> usuarios.add(modelMapper.map(entidad, Usuario.class))
+        ));
+        if (usuarios.isEmpty()) {
+            throw new EntityNotFoundException("No se encontraron usuarios!");
+        }
+        return usuarios;
+    }
+
+    @Override
+    public List<Usuario> findUsuarioAntiguo() {
+        List<Usuario> usuarios = new ArrayList<>();
+        Optional<List<UsuarioEntity>> optionalList = usuarioJpaRepository.findUsuarioAntiguo();
+        optionalList.ifPresent(entidades -> entidades.forEach(
+                entidad -> usuarios.add(modelMapper.map(entidad, Usuario.class))
+        ));
+        if (usuarios.isEmpty()) {
+            throw new EntityNotFoundException("No se encontraron usuarios!");
+        }
+        return usuarios;
+    }
 }

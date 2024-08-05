@@ -40,6 +40,6 @@ Biblioteca
 
 9. listar usuarios por nivel mayor a menor. `Completado`
 
-10. listar todos los usuarios por ultima vez conectado.
+10. listar todos los usuarios por ultima vez conectado. `Completado`
 
-11. listar todos los usuarios empezando por el mas antiguo.
+11. listar todos los usuarios empezando por el mas antiguo. `Completado`

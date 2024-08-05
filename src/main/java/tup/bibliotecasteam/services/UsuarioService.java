@@ -27,4 +27,10 @@ public interface UsuarioService {
 
     //Punto 9
     List<Usuario> findHighLevelUsuarios();
+
+    //Punto 10
+    List<Usuario> findUsuariosRecientes();
+
+    //Punto 11
+    List<Usuario> findUsuarioAntiguo();
 }
