@@ -2,6 +2,7 @@ package tup.bibliotecasteam.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
 import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
@@ -29,4 +30,12 @@ public interface UsuarioJpaRepository extends JpaRepository<UsuarioEntity, Long>
             "GROUP BY u.id, u.nombre, u.pais, u.nivel " +
             "ORDER BY SUM(b.horas) DESC, u.nivel DESC, u.nombre ASC, u.pais ASC")
     List<UsuariosHorasTotalesDto> findUsuariosXHorasTotales();
+
+    //7. "Listar usuarios que hayan jugado comprado <NOMBRE DEL JUEGO>"
+    @Query("SELECT u FROM UsuarioEntity u " +
+            "LEFT JOIN BibliotecaEntity b ON b.usuario.id = u.id " +
+            "JOIN JuegoEntity j ON b.juego.id = j.id " +
+            "WHERE j.nombre = :juego " +
+            "ORDER BY u.nivel DESC, u.nombre ASC, u.pais ASC")
+    Optional<List<UsuarioEntity>> findUsuariosPorJuego(@Param("juego") String juego);
 }

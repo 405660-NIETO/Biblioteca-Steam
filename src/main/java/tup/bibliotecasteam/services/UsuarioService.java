@@ -17,4 +17,7 @@ public interface UsuarioService {
 
     //Punto 6
     List<UsuariosHorasTotalesDto> usuariosPorTotalHoras();
+
+    //Punto 7
+    List<Usuario> findUsuariosPorJuego(String juego);
 }

@@ -22,24 +22,24 @@ Biblioteca
 > [!NOTE]  
 > TODO List.
 
-1. juegos que empiezen por <PALABRA> `Completado`
+1. juegos que empiezen por <PALABRA>. `Completado`
 
-2. listar juegos por cantidad de reviews `Completado`
+2. listar juegos por cantidad de reviews. `Completado`
 
-3. listar juegos con mayor cantidad de horas totales `Completado`
+3. listar juegos con mayor cantidad de horas totales. `Completado`
 
-4. listar juegos mas comprados `Completado`
+4. listar juegos mas comprados. `Completado`
 
-5. listar usuarios con la mayor cantidad de juegos comprados `Completado`
+5. listar usuarios con la mayor cantidad de juegos comprados. `Completado`
 
-6. listar usuarios por mayor cantidad de horas registradas en juegos `Completado`
+6. listar usuarios por mayor cantidad de horas registradas en juegos. `Completado`
 
-7. listar usuarios que hayan jugado comprado <NOMBRE DEL JUEGO>.
+7. listar usuarios que hayan jugado comprado <NOMBRE DEL JUEGO>. `Completado`
 
 8. listar usuarios con la mayor cantidad total de logros obtenidos.
 
-9. listar usuarios por nivel mayor a menor
+9. listar usuarios por nivel mayor a menor.
 
-10. listar todos los usuarios por ultima vez conectado
+10. listar todos los usuarios por ultima vez conectado.
 
-11. listar todos los usuarios empezando por el mas antiguo
+11. listar todos los usuarios empezando por el mas antiguo.

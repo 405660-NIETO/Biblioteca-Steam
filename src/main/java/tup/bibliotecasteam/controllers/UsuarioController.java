@@ -54,4 +54,10 @@ public class UsuarioController {
         List<UsuariosHorasTotalesDto> usuarios = usuarioService.usuariosPorTotalHoras();
         return ResponseEntity.ok(usuarios);
     }
+
+    @GetMapping("/compraron/{juego}")
+    public ResponseEntity<List<Usuario>> getUsuariosXJuego(@PathVariable String juego) {
+        List<Usuario> usuarios = usuarioService.findUsuariosPorJuego(juego);
+        return ResponseEntity.ok(usuarios);
+    }
 }

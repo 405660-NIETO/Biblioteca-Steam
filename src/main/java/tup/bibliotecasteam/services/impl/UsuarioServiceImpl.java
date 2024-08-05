@@ -12,6 +12,7 @@ import tup.bibliotecasteam.repository.UsuarioJpaRepository;
 import tup.bibliotecasteam.services.UsuarioService;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,5 +54,18 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new EntityNotFoundException("No hay usuarios con horas registradas.");
         }
         return listaUsuarios;
+    }
+
+    @Override
+    public List<Usuario> findUsuariosPorJuego(String juego) {
+        List<Usuario> usuarios = new ArrayList<>();
+        Optional<List<UsuarioEntity>> listEntity = usuarioJpaRepository.findUsuariosPorJuego(juego);
+        listEntity.ifPresent(entidades -> entidades.forEach(
+                entity -> usuarios.add(modelMapper.map(entity, Usuario.class))
+        ));
+        if (usuarios.isEmpty()) {
+            throw new EntityNotFoundException("Ese juego no se encuentra en la biblioteca de ningún usuario!");
+        }
+        return usuarios;
     }
 }
