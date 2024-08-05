@@ -8,13 +8,15 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tup.bibliotecasteam.dtos.Credentials;
+import tup.bibliotecasteam.dtos.UsuarioBibliotecaDto;
+import tup.bibliotecasteam.dtos.UsuarioXLogros;
+import tup.bibliotecasteam.dtos.UsuariosHorasTotalesDto;
 import tup.bibliotecasteam.models.Usuario;
 import tup.bibliotecasteam.services.UsuarioService;
+
+import java.util.List;
 
 
 @RestController
@@ -40,5 +42,47 @@ public class UsuarioController {
         Usuario usuario = usuarioService.findByEmailAndPassword(credentials.getEmail(), credentials.getPassword());
 
         return ResponseEntity.ok(usuario);
+    }
+
+    @GetMapping("/juegos")
+    public ResponseEntity<List<UsuarioBibliotecaDto>> obtenerUsuariosConCantidadJuegos() {
+        List<UsuarioBibliotecaDto> usuarios = usuarioService.usuariosConCantidadJuegos();
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/horasTotales")
+    public ResponseEntity<List<UsuariosHorasTotalesDto>> getUsuariosXTotalHoras() {
+        List<UsuariosHorasTotalesDto> usuarios = usuarioService.usuariosPorTotalHoras();
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/compraron/{juego}")
+    public ResponseEntity<List<Usuario>> getUsuariosXJuego(@PathVariable String juego) {
+        List<Usuario> usuarios = usuarioService.findUsuariosPorJuego(juego);
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/logros")
+    public ResponseEntity<List<UsuarioXLogros>> getUsuariosXLogros() {
+        List<UsuarioXLogros> usuarios = usuarioService.findUsuariosXLogros();
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/top-level")
+    public ResponseEntity<List<Usuario>> getHighLevelUsuarios() {
+        List<Usuario> usuarios = usuarioService.findHighLevelUsuarios();
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/recientes")
+    public ResponseEntity<List<Usuario>> getUsuariosRecientes() {
+        List<Usuario> usuarios = usuarioService.findUsuariosRecientes();
+        return ResponseEntity.ok(usuarios);
+    }
+
+    @GetMapping("/antiguedad")
+    public ResponseEntity<List<Usuario>> getUsuariosAntiguos() {
+        List<Usuario> usuarios = usuarioService.findUsuarioAntiguo();
+        return ResponseEntity.ok(usuarios);
     }
 }

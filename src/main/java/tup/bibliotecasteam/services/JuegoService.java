@@ -1,6 +1,8 @@
 package tup.bibliotecasteam.services;
 
 import org.springframework.stereotype.Service;
+import tup.bibliotecasteam.dtos.JuegoHorasDto;
+import tup.bibliotecasteam.dtos.JuegosDescargadosDto;
 import tup.bibliotecasteam.dtos.ReviewJuegoDto;
 import tup.bibliotecasteam.models.Juego;
 
@@ -16,4 +18,10 @@ public interface JuegoService {
 
     //2. "Listar juegos con su cantidad total de reviews"
     List<ReviewJuegoDto> juegosCountReviews();
+
+    //3 "Listar juegos por cantidad total de horas jugadas"
+    List<JuegoHorasDto> juegosConHorasTotales();
+
+    //4 "Listar juegos por cantidad total de descargas"
+    List<JuegosDescargadosDto> listarTotalDescargas();
 }

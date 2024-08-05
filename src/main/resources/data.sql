@@ -1,5 +1,5 @@
 INSERT INTO GENEROS (id, nombre) VALUES (1, 'Accion'),
-                                        (2, 'Porno'),
+                                        (2, 'Estrategia'),
                                         (3, 'MMORPG'),
                                         (4, 'Carreras'),
                                         (5, 'Deporte'),
@@ -13,7 +13,7 @@ INSERT INTO GENEROS (id, nombre) VALUES (1, 'Accion'),
 
 
 INSERT INTO JUEGOS (id, nombre, release_date, precio, id_genero, logros, developer, publisher, rating) VALUES (100,'Quake III', '1999-03-03T05:38:45.625Z' , 150, 10, 23, 'id Software', 'Activision', 'T'),
-                                                                                                              (101,'Granja de Elfas Eroticas', '2020-11-06T05:38:45.625Z', 6000,11,69,'Leche Software', 'Grupo 5', 'A'),
+                                                                                                              (101,'Terraria', '2011-11-06T05:38:45.625Z', 6000,11,69,'Re-Logic', 'Re-Logic', 'E'),
                                                                                                               (102, 'The Witcher 3: Wild Hunt', '2015-05-19T00:00:00Z', 2500, 1, 78, 'CD Projekt Red', 'CD Projekt', 'M'),
                                                                                                               (103, 'Minecraft', '2011-11-18T00:00:00Z', 2000, 2, 100, 'Mojang', 'Microsoft Studios', 'E'),
                                                                                                               (104, 'Cyberpunk 2077', '2020-12-10T00:00:00Z', 3000, 1, 50, 'CD Projekt Red', 'CD Projekt', 'M'),
@@ -45,7 +45,7 @@ INSERT INTO USUARIOS (id, email, password, nombre, pais, last_login, created_at,
                                                                                             (109, 'emilia.gomez@outlook.com', '3m1l14g0m3z', 'Emilia', 'Uruguay', '2022-06-28T12:05:25.300Z', '2022-06-28T12:05:25.300Z', 24);
 
 INSERT INTO BIBLIOTECAS (id, id_juego, id_usuario, horas, logros, review) VALUES
-(100, 101, 100, 575, 69, 'Aguante la merca'),
+(100, 101, 100, 575, 69, 'Este juego me hizo hincha de boca'),
 (102, 101, 101, 40, 69, '¡Increíble! La temática es única.'),
 (103, 102, 102, 300, 78, 'Una obra maestra. Historia envolvente y jugabilidad excelente.'),
 (104, 103, 103, 200, 100, 'Me encanta la creatividad y libertad en este juego.'),

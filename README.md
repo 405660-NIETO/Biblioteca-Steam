@@ -17,27 +17,29 @@ Biblioteca
 ----------
 - /biblioteca/{horas} `GET`
 
+----------
+
 > [!NOTE]  
-> TODO List.
+> TODO List (Pre 2.0.0)
 
-1. juegos que empiezen por <PALABRA> _Completado_
+1. juegos que empiezen por <PALABRA>. `Completado`
 
-2. listar juegos por cantidad de reviews
+2. listar juegos por cantidad de reviews. `Completado`
 
-3. listar juegos con mayor cantidad de horas totales
+3. listar juegos con mayor cantidad de horas totales. `Completado`
 
-4. listar juegos mas comprados
+4. listar juegos mas comprados. `Completado`
 
-5. listar usuarios con la mayor cantidad de juegos comprados
+5. listar usuarios con la mayor cantidad de juegos comprados. `Completado`
 
-6. listar usuarios por mayor cantidad de horas registradas en juegos
+6. listar usuarios por mayor cantidad de horas registradas en juegos. `Completado`
 
-7. listar usuarios que hayan jugado comprado <NOMBRE DEL JUEGO>.
+7. listar usuarios que hayan jugado comprado <NOMBRE DEL JUEGO>. `Completado`
 
-8. listar usuarios con la mayor cantidad total de logros obtenidos.
+8. listar usuarios con la mayor cantidad total de logros obtenidos. `Completado`
 
-9. listar usuarios por nivel mayor a menor
+9. listar usuarios por nivel mayor a menor. `Completado`
 
-10. listar todos los usuarios por ultima vez conectado
+10. listar todos los usuarios por ultima vez conectado. `Completado`
 
-11. listar todos los usuarios empezando por el mas antiguo
+11. listar todos los usuarios empezando por el mas antiguo. `Completado`
